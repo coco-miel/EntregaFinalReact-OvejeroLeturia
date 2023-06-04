@@ -1,4 +1,5 @@
 import React from "react";
+import appLogo from "/wave.png";
 import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
@@ -10,9 +11,9 @@ const NavBar = () => {
   return (
     <Navbar collapseOnSelect expand="lg" bg="light" variant="light">
       <Container>
-        <Navbar.Brand href="../index.html">
+        <Navbar.Brand href="#">
           <img
-            src="src/assets/wave.png"
+            src={appLogo}
             className="navbar-logo d-inline-block align-top"
             alt="Wave logo"
           />
@@ -20,7 +21,7 @@ const NavBar = () => {
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav">
           <Nav className="me-auto">
-            <Nav.Link href="../index.html">Inicio</Nav.Link>
+            <Nav.Link href="#">Inicio</Nav.Link>
             <NavDropdown title="Catalogo" id="basic-nav-dropdown">
               <NavDropdown.Item href="#action/3.1">Remeras</NavDropdown.Item>
               <NavDropdown.Divider />
@@ -29,7 +30,7 @@ const NavBar = () => {
               <NavDropdown.Item href="#action/3.3">Jeans</NavDropdown.Item>
             </NavDropdown>
           </Nav>
-          <CartWidget/>
+          <CartWidget />
         </Navbar.Collapse>
       </Container>
     </Navbar>
