@@ -10,7 +10,7 @@ const ItemListContainer = () => {
   const [products, setProducts] = useState([]);
 // consuming API
   useEffect(() => {
-    fetch(`${process.env.REACT_APP_BASE_URL}`)
+    fetch(`${import.meta.env.VITE_APP_BASE_URL}`)
       .then((response) => response.json())
       .then((product) => setProducts(product));
   }, []);
