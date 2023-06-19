@@ -1,4 +1,4 @@
-import React from "react";
+import { Link } from "react-router-dom";
 // css & image
 import "./NavBar.css";
 import appLogo from "/assets/wave.png";
@@ -10,11 +10,11 @@ import NavDropdown from "react-bootstrap/NavDropdown";
 // components
 import CartWidget from "../CartWidget/CartWidget";
 
-const NavBar = (product) => {
+const NavBar = () => {
   return (
     <Navbar collapseOnSelect expand="lg" bg="light" variant="light">
       <Container>
-        <Navbar.Brand href="#">
+        <Navbar.Brand as={Link} to="/PreEntrega2-OvejeroLeturia/">
           <img
             src={appLogo}
             className="navbar-logo d-inline-block align-top"
@@ -24,13 +24,37 @@ const NavBar = (product) => {
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav">
           <Nav className="me-auto">
-            <Nav.Link href="#">Inicio</Nav.Link>
-            <NavDropdown title="Catalogo" id="basic-nav-dropdown">
-              <NavDropdown.Item href="#action/3.1">{product.categor}</NavDropdown.Item>
+            <Nav.Link as={Link} to="/PreEntrega2-OvejeroLeturia/">
+              Home
+            </Nav.Link>
+            <NavDropdown title="Products" id="basic-nav-dropdown">
+              <NavDropdown.Item
+                as={Link}
+                to="/PreEntrega2-OvejeroLeturia/category/men's clothing"
+              >
+                Men's clothing
+              </NavDropdown.Item>
               <NavDropdown.Divider />
-              <NavDropdown.Item href="#action/3.2">Buzos</NavDropdown.Item>
+              <NavDropdown.Item
+                as={Link}
+                to="/PreEntrega2-OvejeroLeturia/category/women's clothing"
+              >
+                Women's clothing
+              </NavDropdown.Item>
               <NavDropdown.Divider />
-              <NavDropdown.Item href="#action/3.3">Jeans</NavDropdown.Item>
+              <NavDropdown.Item
+                as={Link}
+                to="/PreEntrega2-OvejeroLeturia/category/electronics"
+              >
+                Electronics
+              </NavDropdown.Item>
+              <NavDropdown.Divider />
+              <NavDropdown.Item
+                as={Link}
+                to="/PreEntrega2-OvejeroLeturia/category/jewelery"
+              >
+                Jewelery
+              </NavDropdown.Item>
             </NavDropdown>
           </Nav>
           <CartWidget />
