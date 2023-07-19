@@ -7,7 +7,7 @@ const ErrorPage = () => {
   const navigate = useNavigate();
   useEffect(() => {
     setTimeout(() => {
-      navigate("/PreEntrega2-OvejeroLeturia");
+      navigate("/");
     }, 5000);
   }, [navigate]);
 

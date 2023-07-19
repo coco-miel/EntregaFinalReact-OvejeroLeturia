@@ -1,6 +1,5 @@
 // bootstrap
-import Nav from "react-bootstrap/Nav";
-import Badge from "react-bootstrap/Badge";
+import { Badge, Nav } from "react-bootstrap";
 
 const CartWidget = () => {
   return (

@@ -8,8 +8,6 @@ import ErrorPage from "./pages/ErrorPage/ErrorPage.jsx";
 import DetailPage from "./pages/DetailPage/DetailPage.jsx";
 import CategoryPage from "./pages/CategoryPage/CategoryPage.jsx";
 
-/* Adding the github's repo name to the path because my vite.config.js base doesn't default to "/".
- I had to change vite's base in order to make gh pages work...*/
 
 function App() {
   return (
@@ -18,7 +16,7 @@ function App() {
         <NavBar />
         <Routes>
           <Route 
-            path="/PreEntrega2-OvejeroLeturia/" 
+            path="/" 
             element={<HomePage />} 
           />
           <Route 
@@ -26,11 +24,11 @@ function App() {
             element={<ErrorPage />} 
           />
           <Route
-            path="/PreEntrega2-OvejeroLeturia/item/:id"
+            path="/item/:id"
             element={<DetailPage />}
           />
           <Route
-            path="/PreEntrega2-OvejeroLeturia/category/:categoryId"
+            path="/category/:categoryId"
             element={<CategoryPage />}
           />
         </Routes>
