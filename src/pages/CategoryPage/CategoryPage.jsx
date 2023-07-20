@@ -13,7 +13,6 @@ import Item from "../../components/Item/Item";
 const CategoryPage = () => {
     const [products, setProducts] = useState([]);
     const { categoryId } = useParams();
-    console.log(categoryId);
     useEffect(() => {
       const getProducts = async () => {
         const q = query(collection(db, "clothes"), where("category", "==", categoryId));

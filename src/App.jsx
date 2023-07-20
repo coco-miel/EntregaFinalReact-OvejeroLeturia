@@ -7,7 +7,7 @@ import HomePage from "./pages/HomePage/HomePage.jsx";
 import ErrorPage from "./pages/ErrorPage/ErrorPage.jsx";
 import DetailPage from "./pages/DetailPage/DetailPage.jsx";
 import CategoryPage from "./pages/CategoryPage/CategoryPage.jsx";
-
+import CartPage from "./pages/CartPage/CartPage.jsx";
 
 function App() {
   return (
@@ -30,6 +30,10 @@ function App() {
           <Route
             path="/category/:categoryId"
             element={<CategoryPage />}
+          />
+          <Route
+            path="/cart/"
+            element={<CartPage />}
           />
         </Routes>
       </>
