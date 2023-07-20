@@ -12,7 +12,7 @@ const ItemDetailContainer = ({ data }) => {
         <Col md={8}>
           <h1 className="mb-3">{data.title}</h1>
           <div className="fs-5 mb-3">
-            <span>Price: ${data.price}</span>
+             <span>Price: ${data.price} </span>
           </div>
           <p className="lead">{data.description}</p>
           <div className="d-flex">

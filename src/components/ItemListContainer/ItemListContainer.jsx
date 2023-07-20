@@ -31,7 +31,7 @@ const ItemListContainer = () => {
         {products.map((product) => {
           return (
             <Col className="my-4" md={3} key={product.id}>
-              <Link to={`item/${product.id}`}>
+              <Link to={`detail/${product.id}`}>
                 <Item data={product} />
               </Link>
             </Col>

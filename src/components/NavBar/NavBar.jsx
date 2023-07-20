@@ -27,30 +27,23 @@ const NavBar = () => {
             <NavDropdown title="Products" id="basic-nav-dropdown">
               <NavDropdown.Item
                 as={Link}
-                to="/category/men's clothing"
+                to="/category/tshirts"
               >
-                Men's clothing
+                T-shirts
               </NavDropdown.Item>
               <NavDropdown.Divider />
               <NavDropdown.Item
                 as={Link}
-                to="/category/women's clothing"
+                to="/category/hoodies"
               >
-                Women's clothing
+                Hoodies
               </NavDropdown.Item>
               <NavDropdown.Divider />
               <NavDropdown.Item
                 as={Link}
-                to="/category/electronics"
+                to="/category/jeans"
               >
-                Electronics
-              </NavDropdown.Item>
-              <NavDropdown.Divider />
-              <NavDropdown.Item
-                as={Link}
-                to="/category/jewelery"
-              >
-                Jewelery
+                Jeans
               </NavDropdown.Item>
             </NavDropdown>
           </Nav>

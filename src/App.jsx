@@ -24,7 +24,7 @@ function App() {
             element={<ErrorPage />} 
           />
           <Route
-            path="/item/:id"
+            path="/detail/:id"
             element={<DetailPage />}
           />
           <Route
