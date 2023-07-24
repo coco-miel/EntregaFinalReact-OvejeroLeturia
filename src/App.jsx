@@ -1,6 +1,7 @@
-import React from "react";
+
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 // components
+import { CartProvider } from "./context/CartContext.jsx";
 import NavBar from "./components/NavBar/NavBar.jsx";
 // pages
 import HomePage from "./pages/HomePage/HomePage.jsx";
@@ -10,9 +11,10 @@ import CategoryPage from "./pages/CategoryPage/CategoryPage.jsx";
 import CartPage from "./pages/CartPage/CartPage.jsx";
 
 function App() {
+
   return (
     <Router>
-      <>
+      <CartProvider>
         <NavBar />
         <Routes>
           <Route 
@@ -32,11 +34,11 @@ function App() {
             element={<CategoryPage />}
           />
           <Route
-            path="/cart/"
+            path="/cart"
             element={<CartPage />}
           />
         </Routes>
-      </>
+      </CartProvider>
     </Router>
   );
 }

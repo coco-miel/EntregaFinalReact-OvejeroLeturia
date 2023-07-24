@@ -1,0 +1,10 @@
+.item-count-container {
+    display: flex;
+    align-items: center;
+  }
+  
+  .item-count-container button {
+    width: 32px;
+    height: 30px;
+    border-radius: 40%;
+  }
