@@ -1,6 +1,4 @@
 
-import UserForm from "../../components/CheckoutForm/CheckoutForm";
-import { Row, Col, Container, Button, Image } from "react-bootstrap";
 import Cart from "../../components/Cart/Cart";
 import { CartContext } from "../../context/CartContext";
 import { useContext } from "react";
