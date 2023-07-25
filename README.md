@@ -7,7 +7,7 @@
 - Tiene una única rama (main)
 - Utiliza una serie de librerias externas (cada una de ellas estan en Complementos necesarios)
 
-### Complementos necesarios
+## Complementos necesarios
 * react-router-dom
 * react-bootstrap
 * bootstrap icons (esta incluido a traves de un CDN en el index.html)
