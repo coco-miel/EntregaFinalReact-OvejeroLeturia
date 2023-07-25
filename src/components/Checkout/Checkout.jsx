@@ -1,17 +1,20 @@
+// context
 import { useContext, useState } from "react";
 import { CartContext } from "../../context/CartContext";
-import { Form, Button, Modal } from "react-bootstrap";
-import { collection, addDoc, updateDoc, doc, getDoc  } from "firebase/firestore";
+// firebase
 import { db } from "../../firebase/firebaseConfig";
+import { collection, addDoc, updateDoc, doc, getDoc } from "firebase/firestore";
+// bootstrap
+import { Form, Button, Modal } from "react-bootstrap";
+
 
 function Checkout() {
-
-    const initialState = {
-        name: "",
-        lastName: "",
-        phone: "",
-        email: "",
-        };
+  const initialState = {
+    name: "",
+    lastName: "",
+    phone: "",
+    email: "",
+  };
 
   //for the form
   const { clearCart, cartList } = useContext(CartContext);
@@ -19,59 +22,54 @@ function Checkout() {
   const [orderId, setOrderId] = useState(""); // state variable to store the order id
   const [formSubmitted, setFormSubmitted] = useState(false); // state variable to track form submission status
 
-
-
   const handleOnChange = (e) => {
     const { value, name } = e.target;
     setValues({ ...values, [name]: value });
   };
 
-
-    const cartItemsData = cartList.map((item) => ({
+  const cartItemsData = cartList.map((item) => ({
     title: item.title,
     quantity: item.quantity,
     price: item.price,
-    }));
+  }));
 
-    const clientData = {
-        name: values.name,
-        lastName: values.lastName,
-        email: values.email,
-        phone: values.phone,
-      };
+  const clientData = {
+    name: values.name,
+    lastName: values.lastName,
+    email: values.email,
+    phone: values.phone,
+  };
 
   const onSubmit = async (e) => {
     e.preventDefault();
     const docRef = await addDoc(collection(db, "purchaseOrder"), {
-        client: clientData,
-        cartItems: cartItemsData,
-      });
-    
-      // Update the stock for each product in the cart
-      cartList.forEach(async (item) => {
-        const productId = item.id;
-        const productRef = doc(db, "clothes", productId); 
-    
-        for (const item of cartList) {
-            const itemId = item.id;
-            const itemDocRef = doc(db, "clothes", itemId);
-      
-            // Fetch the current stock value from the "clothes" document
-            const itemDocSnap = await getDoc(itemDocRef);
-            const currentStock = itemDocSnap.data().stock;
-      
-            // Calculate the new stock value after deducting the quantity ordered
-            const newStock = currentStock - item.quantity;
-      
-            // Update the "stock" field in the "clothes" document
-            await updateDoc(itemDocRef, { stock: newStock });
-          }
-      });
-    
-      setOrderId(docRef.id);
-      setValues(initialState);
-      setFormSubmitted(true);
-    };
+      client: clientData,
+      cartItems: cartItemsData,
+    });
+
+    cartList.forEach(async (item) => {
+      const productId = item.id;
+
+      for (const item of cartList) {
+        const itemId = item.id;
+        const itemDocRef = doc(db, "clothes", itemId);
+
+        // fetch the current stock value from the "clothes" document
+        const itemDocSnap = await getDoc(itemDocRef);
+        const currentStock = itemDocSnap.data().stock;
+
+        // calculate the new stock value after deducting the quantity ordered
+        const newStock = currentStock - item.quantity;
+
+        // update the "stock" field in the "clothes" document
+        await updateDoc(itemDocRef, { stock: newStock });
+      }
+    });
+
+    setOrderId(docRef.id);
+    setValues(initialState);
+    setFormSubmitted(true);
+  };
 
   //for the modal
 
@@ -92,7 +90,7 @@ function Checkout() {
       <Modal
         show={show}
         onHide={handleClose}
-        backdrop="static" 
+        backdrop="static"
         keyboard={false} // Prevent closing with the escape key
       >
         <Form onSubmit={onSubmit}>

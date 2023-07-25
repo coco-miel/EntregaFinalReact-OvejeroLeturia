@@ -1,13 +1,11 @@
+// css
 import "./ItemDetailContainer.css";
-import { useContext, useState } from "react";
-// bootstrap
-import { Row, Col, Container, Button, Image } from "react-bootstrap";
+// components
 import ItemCount from "../ItemCount/ItemCount";
-import { CartContext } from "../../context/CartContext";
+// bootstrap
+import { Row, Col, Container, Image } from "react-bootstrap";
 
 const ItemDetailContainer = ({ data }) => {
-
-
   return (
     <Container className="p-5">
       <Row>
@@ -17,13 +15,13 @@ const ItemDetailContainer = ({ data }) => {
         <Col md={8}>
           <h1 className="mb-3">{data.title}</h1>
           <div className="fs-5 mb-3">
-             <span>Price: ${data.price} | Stock: {data.stock} </span>
+            <span>
+              Price: ${data.price} | Stock: {data.stock}{" "}
+            </span>
           </div>
           <p className="lead">{data.description}</p>
           <div className="mb-3">
-          <ItemCount 
-          stock={data.stock}
-          data={data}/>
+            <ItemCount stock={data.stock} data={data} />
           </div>
         </Col>
       </Row>

@@ -1,7 +1,7 @@
 // css
 import "./Item.css";
 // boostrap
-import {Card, Button} from "react-bootstrap";
+import { Card, Button } from "react-bootstrap";
 
 const Item = ({ data }) => {
   return (

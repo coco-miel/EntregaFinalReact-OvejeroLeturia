@@ -1,4 +1,3 @@
-import React from "react";
 import { useEffect } from "react";
 // dom
 import { useNavigate } from "react-router-dom";

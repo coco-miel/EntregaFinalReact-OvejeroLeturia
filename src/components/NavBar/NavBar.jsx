@@ -1,11 +1,12 @@
+// dom
 import { Link } from "react-router-dom";
-// css & image
-import "./NavBar.css";
-import appLogo from "/assets/wave.png";
-// bootstrap
-import { Container, Nav, Navbar, NavDropdown } from "react-bootstrap";
 // components
 import CartWidget from "../CartWidget/CartWidget";
+// css & image
+import "./NavBar.css";
+import appLogo from "../../assets/wave.png";
+// bootstrap
+import { Container, Nav, Navbar, NavDropdown } from "react-bootstrap";
 
 const NavBar = () => {
   return (
@@ -25,24 +26,15 @@ const NavBar = () => {
               Home
             </Nav.Link>
             <NavDropdown title="Products" id="basic-nav-dropdown">
-              <NavDropdown.Item
-                as={Link}
-                to="/category/tshirts"
-              >
+              <NavDropdown.Item as={Link} to="/category/tshirts">
                 T-shirts
               </NavDropdown.Item>
               <NavDropdown.Divider />
-              <NavDropdown.Item
-                as={Link}
-                to="/category/hoodies"
-              >
+              <NavDropdown.Item as={Link} to="/category/hoodies">
                 Hoodies
               </NavDropdown.Item>
               <NavDropdown.Divider />
-              <NavDropdown.Item
-                as={Link}
-                to="/category/jeans"
-              >
+              <NavDropdown.Item as={Link} to="/category/jeans">
                 Jeans
               </NavDropdown.Item>
             </NavDropdown>

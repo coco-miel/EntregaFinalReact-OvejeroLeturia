@@ -1,8 +1,11 @@
-import React, { useContext } from "react";
-import { Row, Col, Container, Button, Image } from "react-bootstrap";
+// context
+import { useContext } from "react";
 import { CartContext } from "../../context/CartContext";
-import Table from "react-bootstrap/Table";
+// css
 import "./Cart.css";
+// bootstrap
+import { Table, Container, Button } from "react-bootstrap";
+// component
 import Checkout from "../Checkout/Checkout";
 
 const Cart = () => {

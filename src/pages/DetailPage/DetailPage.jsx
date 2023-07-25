@@ -1,13 +1,16 @@
 import { useState, useEffect } from "react";
+// dom
 import { useParams } from "react-router-dom";
+// components
+import ItemDetailContainer from "../../components/ItemDetailContainer/ItemDetailContainer";
+// firebase
 import { doc, getDoc } from "firebase/firestore";
 import { db } from "../../firebase/firebaseConfig";
-import ItemDetailContainer from "../../components/ItemDetailContainer/ItemDetailContainer";
 
 const DetailPage = () => {
   const { id } = useParams();
   const [product, setProduct] = useState({});
-//following firebase documentation in to how to retrieve the contents of a single document
+  //following firebase documentation in to how to retrieve the contents of a single document
   useEffect(() => {
     const getProduct = async () => {
       const docRef = doc(db, "clothes", id);
@@ -23,11 +26,7 @@ const DetailPage = () => {
     getProduct();
   }, [id]);
 
-  return (
-    <div>
-      {product && <ItemDetailContainer data={product}/>}
-    </div>
-  );
+  return <div>{product && <ItemDetailContainer data={product} />}</div>;
 };
 
 export default DetailPage;
