@@ -83,7 +83,7 @@ function Checkout() {
 
   return (
     <>
-      <Button variant="primary" onClick={handleShow}>
+      <Button variant="dark" onClick={handleShow}>
         Finish purchase
       </Button>
 

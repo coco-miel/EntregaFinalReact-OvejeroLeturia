@@ -1,6 +1,8 @@
 // context
 import { useContext } from "react";
 import { CartContext } from "../../context/CartContext";
+// dom
+import { Link } from "react-router-dom";
 // css
 import "./Cart.css";
 // bootstrap
@@ -9,11 +11,12 @@ import { Table, Container, Button } from "react-bootstrap";
 import Checkout from "../Checkout/Checkout";
 
 const Cart = () => {
-  const { cartList, itemsCart, totalCart, clearCart } = useContext(CartContext);
+  const { cartList, itemsCart, totalCart, clearCart, clearItem } = useContext(CartContext);
 
   const handleEmptyCart = () => {
     clearCart();
   };
+
 
   return (
     <>
@@ -26,6 +29,7 @@ const Cart = () => {
               <th>Qty</th>
               <th>Unit Price</th>
               <th>Sum</th>
+              <th>Remove</th>
             </tr>
           </thead>
           <tbody>
@@ -35,6 +39,7 @@ const Cart = () => {
                 <td>{data.quantity}</td>
                 <td>${data.price}</td>
                 <td>${data.price * data.quantity}</td>
+                <td className="bi bi-trash-fill align-middle fs-4"  onClick={() => clearItem(data.id)}> </td>
               </tr>
             ))}
           </tbody>
@@ -44,12 +49,16 @@ const Cart = () => {
               <td className="fw-bold">{itemsCart()}</td>
               <td className="fw-bold">TOTAL PURCHASE:</td>
               <td className="fw-bold">${totalCart()}</td>
+              <td></td>
             </tr>
           </tfoot>
         </Table>
-        <div className="mt-5 d-flex justify-content-evenly">
-          <Button onClick={handleEmptyCart}>Clean cart</Button>
+        <div className="mt-5 d-flex justify-content-around">
+          <Button variant="danger" onClick={handleEmptyCart}>Clean cart</Button>
           <Checkout />
+          <Link to={`/`}>
+            <Button variant="primary">Continue Shopping</Button>
+          </Link>
         </div>
       </Container>
     </>
